@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            
+            {%if title%}
+                <title>{{title}} - Микроблок</title>
+            {%else%}
+                <title> Доюро пожаловать</title>
+            {%endif%}
+            
+    </head>
+    </body>
+        <h1>Hello {{user.username}} </h1>
+            {%for post in posts%}
+                <div>{{ post.autor.username }} {{ post.body }}</div>
+
+
+
+            {%endfor%}
+    </body>
+
+
+</html>
