@@ -1,7 +1,16 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from forms import Login
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'aveimp'
+
+@app.route('/login')
+def login():
+    form = Login()
+    return render_template('login.html', title='Вход', form=form)
+
 
 @app.route('/one')
 def one():
