@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            
+            {%if title%}
+                <title>{{title}} - Микроблок</title>
+            {%else%}
+                <title> Доюро пожаловать</title>
+            {%endif%}
+            
+    </head>
+    </body>
+        <div> Мой блог <a href="/index"> домой </a></div>
+        <hr>
+            {%block content%}
+            {%endblock%}
+        </hr>
+    </body>
+
+
+</html>
