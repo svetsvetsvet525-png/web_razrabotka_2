@@ -1,24 +1,18 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, flash, redirect
 from flask import request
 from forms import Login
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'aveimp'
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = Login()
+    if form.validate_on_submit:
+        flash('получен логин пользователя {}, запомнить{}'.format(form.name_user.data, form.remember.data))
+        redirect('/index')
     return render_template('login.html', title='Вход', form=form)
-
-
-@app.route('/one')
-def one():
-    return 'Hello world'
-
-@app.route('/two')
-def two():
-    return 'Hi'
 
 @app.route('/user/<username>')
 def user_profile(username):
